@@ -17,6 +17,7 @@
     "path": "^0.12.7",
     "pg": "^6.1.0",
     "pg-cursor": "^2.0.0",
+    "process-files": "^1.0.0",
     "sails": "^1.1.0",
     "sails-hook-grunt": "^3.1.0",
     "sails-hook-orm": "^2.1.1",
