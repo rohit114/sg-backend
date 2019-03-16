@@ -33,6 +33,8 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   'get /one-to-one': 'DataController.getOneToOneMatch',
+  'get /cp-data': 'DataController.getCpData',
+  'get /sg-data': 'DataController.getSgData',
 
 
 };

@@ -17,5 +17,21 @@
     });
   },
 
+  getCpData: function(req, res) {
+   
+    DataService.getCpData(req.allParams(), function(err, result) {
+      if(err) { return res.serverError(err); }
+      return res.ok(result);
+    });
+  },
+
+  getSgData: function(req, res) {
+   
+    DataService.getSgData(req.allParams(), function(err, result) {
+      if(err) { return res.serverError(err); }
+      return res.ok(result);
+    });
+  },
+
 };
 
