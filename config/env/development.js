@@ -22,8 +22,8 @@ module.exports = {
   },
 
   clientData: {
-    "cpSide": './sg-data/sample-data/OneToOneMatchingSampleData/ClientOneToOneMatchingSampleData/',
-    "sgSide": './sg-data/sample-data/OneToOneMatchingSampleData/SgOneToOneMatchingSampleData/'
+    "cpSide": './sg-data/sample-date/OneToOneMatchingSampleData/ClientOneToOneMatchingSampleData/',
+    "sgSide": './sg-data/sample-date/OneToOneMatchingSampleData/SgOneToOneMatchingSampleData/'
   }
 
 

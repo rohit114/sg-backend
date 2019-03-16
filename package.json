@@ -13,6 +13,7 @@
     "express": "^4.16.4",
     "fs": "0.0.1-security",
     "grunt": "1.0.1",
+    "line-by-line": "^0.1.6",
     "path": "^0.12.7",
     "pg": "^6.1.0",
     "pg-cursor": "^2.0.0",

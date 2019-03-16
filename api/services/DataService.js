@@ -3,6 +3,7 @@ var async = require('async');
 var _ = require('lodash');
 var fs = require('fs');
 const path = require('path');
+//var LineByLineReader = require('line-by-line');
 
 module.exports = {
   getOneToOneMatch: getOneToOneMatch,
@@ -15,53 +16,34 @@ function getOneToOneMatch(options, callback) {
       var query = `SELECT * from mt300`;
       RawPsqlService.queryOnM1(query , [] , function(err, mt300Object){
         if(err){ return done(err)}
-       done(null, mt300Object);
+         done(null, mt300Object);
      });
     },
     function(mt300Object, done){
 
-     var cpSideInput = path.resolve(sails.config.clientData["cpSide"]);
-     var sgSideInput = path.resolve(sails.config.clientData["sgSide"]);
-     cpSideInput = cpSideInput+"/1_message.txt";
+     var cpSideInputPath = path.resolve(sails.config.clientData["cpSide"]);
+     var sgSideInputPath = path.resolve(sails.config.clientData["sgSide"]);
+     fs.readdir(cpSideInputPath, (err, files) => {
+      async.each(files,function(file, callback) {
 
-     console.log("location",cpSideInput);
-     fs.readFile(cpSideInput, function(err, buf) {
+       console.log(file);
 
-        console.log(buf.toString());
-        
-      });
+     }, function(err) {
 
-    /* fs.readdir(cpSideInput, (err, files) => {
-      console.log(" cpSideInput location:"+JSON.stringify(cpSideInput));
-      console.log(" sgSideInput location:"+JSON.stringify(sgSideInput));
-      console.log("file:"+JSON.stringify(files));
-
-      fs.readFile(files, function(err, buf) {
-
-        console.log(buf.toString());
-        console.log("**********************");
-      });
-
-     /* async.each(files,function(file, callback) {
-
-
-      }, function(err) {
-
-
-      });
+         callback();
 
     });
-*/
-     
-     
-     return done(null, mt300Object);
 
+    });
+
+     return done(null, mt300Object);
    },
-    ], function(err, results){
-      if(err){
-        return callback(err);
-      }
-      return callback(null, results);
+   
+   ], function(err, results){
+    if(err){
+      return callback(err);
+    }
+    return callback(null, results);
   });
 }
 
